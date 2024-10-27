@@ -38,6 +38,9 @@ impl Canvas {
         let delta_x: i32 = point2.x - point1.x;
         let delta_y: i32 = point2.y - point1.y;
         let steps: i32 = delta_x.abs().max(delta_y.abs());
+        if steps == 0 {
+            steps = 1;
+        }
         let x_increase: f32 = delta_x as f32 / steps as f32;
         let y_increase: f32 = delta_y as f32 / steps as f32;
         let mut x: f32 = point1.x as f32;
