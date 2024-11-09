@@ -18,7 +18,7 @@ impl Engine {
         Self {
             canvas: Canvas::new(),
             time: Instant::now(),
-            fov: 80.0,
+            fov: 90.0,
             max_fps: 60.0,
             should_stop: false,
             show_ui: true
@@ -55,10 +55,10 @@ impl Engine {
                         return;
                     },
                     KeyCode::Up => {
-                        self.canvas.verticies.iter_mut().for_each(|v| (*v).z -= delta_time * 100.0);
+                        self.canvas.verticies.iter_mut().for_each(|v| (*v) = v.scale(1.01f32));
                     },
                     KeyCode::Down => {
-                        self.canvas.verticies.iter_mut().for_each(|v| (*v).z += delta_time * 100.0);
+                        self.canvas.verticies.iter_mut().for_each(|v| (*v) = v.scale(0.99f32));
                     },
                     KeyCode::Left => {
                         self.canvas.verticies.iter_mut().for_each(|v| *v = v.rotate_y(delta_time * 4.0));

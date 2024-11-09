@@ -33,7 +33,6 @@ impl<T> Vector3<T> {
     pub fn new(x: T, y: T, z: T) -> Self {
         Self { x, y, z}
     }
-
 }
 
 impl Vector3<f32> {
@@ -70,6 +69,10 @@ impl Vector3<f32> {
             y: sin * self.x + cos * self.y,
             z: self.z
         }
+    }
+
+    pub fn scale(&self, scale: f32) -> Self {
+        Self { x: self.x * scale, y: self.y * scale, z: self.z * scale }
     }
 }
 
